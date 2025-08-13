@@ -11,6 +11,7 @@ services:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_INITDB_ARGS=--sql-mode=""
     # ports:
     #   - "${HOST_MARIADB_PORT}:${CONT_MARIADB_PORT}"
     volumes:
@@ -20,7 +21,7 @@ services:
 
   # PHPMyAdmin Service
   phpmyadmin-contact-form:
-    image: phpmyadmin/phpmyadmin:latest
+    image: phpmyadmin:latest
     container_name: phpmyadmin-contact-form
     restart: on-failure
     environment:
