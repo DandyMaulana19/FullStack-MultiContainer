@@ -1,22 +1,17 @@
 # Stage 1: Build the Next.js application
 FROM node:22.10.0-alpine AS builder
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the rest of your application code
 COPY . .
 
-# Install dependencies
 RUN npm install
 
-# Build the Next.js application
 RUN npm run build
 
 # Stage 2: Create the production image
 FROM node:22.10.0-alpine
 
-# Set the working directory inside the container
 WORKDIR /app
 
 # Create user and group for application
